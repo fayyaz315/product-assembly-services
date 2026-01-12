@@ -1,0 +1,39 @@
+query Input {
+  presentmentCurrencyRate
+  cart {
+    lines {
+      id
+      quantity
+      cost {
+        amountPerQuantity {
+          amount
+          currencyCode
+        }
+      }
+      # Access the cart line attribute to decide if we should add an assembly service
+      assemblyServiceAdded: attribute(key: "Assembly Service Added") {
+        value
+      }
+      merchandise {
+        __typename
+        ... on ProductVariant {
+          id
+          title
+          product {
+            # Access the metafield value to determine the cost of the assembly service
+            assemblyServiceCost: metafield(namespace: "$app:assembly-service", key: "cost") {
+              type
+              jsonValue
+            }
+          }
+        }
+      }
+    }
+  }
+  cartTransform {
+    # Access the variant ID that represents the assembly service product
+    assemblyServiceVariantID: metafield(namespace: "$app:optional-add-ons", key: "function-configuration") {
+      value
+    }
+  }
+}
