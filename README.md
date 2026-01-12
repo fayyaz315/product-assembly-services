@@ -11,11 +11,6 @@ A complete Shopify app that allows customers to add optional assembly services t
 - ✅ **Currency Support**: Works with multi-currency stores
 - ✅ **Mobile Responsive**: Optimized for all screen sizes
 
-## 🎯 Demo
-
-![Assembly Service Checkbox](docs/images/checkbox-demo.png)
-![Cart with Bundle](docs/images/cart-bundle.png)
-
 ## 🏗️ Architecture
 
 ```
